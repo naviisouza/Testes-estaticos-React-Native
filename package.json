@@ -1,0 +1,43 @@
+{
+  "name": "teststaticproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx", 
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix", 
+    "test:static:sum": "tsc src/utils/sum.ts --skipLibCheck --noEmit false", 
+    "format:check:file": "prettier --check src/utils/unformatted-file.ts",
+    "format:apply:file": "prettier --write src/utils/unformatted-file.ts",
+    "check:unused:dependencies": "depcheck",
+    "start:activity:1": "npm run lint:check",
+    "start:activity:2": "npm run test:static:sum",
+    "start:activity:3": "npm run format:check:file",
+    "start:activity:4": "npm run format:apply:file",
+    "start:activity:5": "npm run check:unused:dependencies"
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.76.5",
+    "uuid": "^11.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-native": "^0.73.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "depcheck": "^1.4.7",
+    "eslint": "^8.00.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.26.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "^3.4.2",
+    "typescript": "^4.4.3"
+  }
+}
